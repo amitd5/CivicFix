@@ -76,26 +76,25 @@ The lifecycle allows complaints to be tracked from initial submission through as
 
 ## 🏗️ System Architecture
 
+## 🏗️ System Architecture
+
 ```mermaid
 flowchart TB
 
-    U[👤 Citizen]
-    A[🛠️ Administrator]
+    U[Citizen]
+    A[Administrator]
 
-    FE[🌐 React + Tailwind Frontend]
+    FE[React Frontend]
 
-    API[⚡ FastAPI Backend]
+    API[FastAPI Backend]
 
-    AUTH[🔐 JWT Authentication]
-    COMP[📋 Complaint Management]
-    ADMIN[🛠️ Admin & Role Management]
-    NOTIF[🔔 Notification Service]
-    AI[🤖 AI Classification & Priority]
-    
-    DB[(🗄️ PostgreSQL)]
-    CACHE[(⚡ Redis)]
-    STORAGE[(☁️ AWS S3)]
-    MAPS[📍 Maps / Geolocation]
+    AUTH[JWT Authentication]
+    COMP[Complaint Management]
+    ADMIN[Admin & Role Management]
+    NOTIF[Notification Service]
+    AI[AI Classification & Priority]
+
+    DB[(PostgreSQL)]
 
     U --> FE
     A --> FE
@@ -113,26 +112,17 @@ flowchart TB
     ADMIN --> DB
     NOTIF --> DB
     AI --> DB
+```
 
-    API --> CACHE
-    API --> STORAGE
-    API --> MAPS
-
-
-```markdown
-**### Architecture Overview**
+### Architecture Overview
 
 CivicFix follows a modular client-server architecture:
 
-- **Frontend:** React.js + Tailwind CSS provides the citizen and administrator interfaces.
-- **Backend:** FastAPI exposes REST APIs for authentication, complaints, administration, notifications, and AI-powered processing.
-- **Authentication:** JWT-based authentication protects API endpoints and supports role-based access.
-- **Database:** PostgreSQL stores users, complaints, statuses, notifications, and related application data.
-- **AI Layer:** Python-based classification and priority analysis assists in categorizing complaints.
-- **Caching:** Redis can be used for frequently accessed or temporary data.
-- **Storage:** AWS S3 can be used for complaint evidence and uploaded files.
-- **Maps:** Location information can be integrated using mapping/geolocation services.
-
+- **Frontend:** React + Vite provides the citizen and administrator interfaces.
+- **Backend:** FastAPI provides REST APIs for authentication, complaints, administration, notifications, and AI-assisted processing.
+- **Authentication:** JWT-based authentication protects API endpoints.
+- **Database:** PostgreSQL stores users, complaints, notifications, and related application data.
+- **AI Layer:** Python-based services assist with complaint classification, department classification, priority scoring, and duplicate detection.
 ---
 
 **## 🛠️ Tech Stack**
