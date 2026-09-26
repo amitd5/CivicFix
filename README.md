@@ -78,38 +78,73 @@ The lifecycle allows complaints to be tracked from initial submission through as
 
 ```mermaid
 flowchart TB
-    U[Citizen / Admin] --> FE[React Frontend]
-    FE --> API[FastAPI REST API]
 
-    API --> AUTH[JWT Authentication]
-    API --> DB[(PostgreSQL)]
-    API --> AI[AI Services]
+    U[👤 Citizen]
+    A[🛠️ Administrator]
 
-    AI --> CLASS[Category Classifier]
-    AI --> DEPT[Department Classifier]
-    AI --> PRIORITY[Priority Scoring]
-    AI --> DUP[Duplicate Detection]
+    FE[🌐 React + Tailwind Frontend]
 
-    API --> NOTIF[Notification Service]
-    API --> HISTORY[Complaint History]
-    API --> RESPONSE[Complaint Responses]
+    API[⚡ FastAPI Backend]
 
-    FE --> MAP[Location / Map Integration]
-    API --> EMAIL[Email Service]
-```
+    AUTH[🔐 JWT Authentication]
+    COMP[📋 Complaint Management]
+    ADMIN[🛠️ Admin & Role Management]
+    NOTIF[🔔 Notification Service]
+    AI[🤖 AI Classification & Priority]
+    
+    DB[(🗄️ PostgreSQL)]
+    CACHE[(⚡ Redis)]
+    STORAGE[(☁️ AWS S3)]
+    MAPS[📍 Maps / Geolocation]
+
+    U --> FE
+    A --> FE
+
+    FE --> API
+
+    API --> AUTH
+    API --> COMP
+    API --> ADMIN
+    API --> NOTIF
+    API --> AI
+
+    AUTH --> DB
+    COMP --> DB
+    ADMIN --> DB
+    NOTIF --> DB
+    AI --> DB
+
+    API --> CACHE
+    API --> STORAGE
+    API --> MAPS
+
+
+```markdown
+**### Architecture Overview**
+
+CivicFix follows a modular client-server architecture:
+
+- **Frontend:** React.js + Tailwind CSS provides the citizen and administrator interfaces.
+- **Backend:** FastAPI exposes REST APIs for authentication, complaints, administration, notifications, and AI-powered processing.
+- **Authentication:** JWT-based authentication protects API endpoints and supports role-based access.
+- **Database:** PostgreSQL stores users, complaints, statuses, notifications, and related application data.
+- **AI Layer:** Python-based classification and priority analysis assists in categorizing complaints.
+- **Caching:** Redis can be used for frequently accessed or temporary data.
+- **Storage:** AWS S3 can be used for complaint evidence and uploaded files.
+- **Maps:** Location information can be integrated using mapping/geolocation services.
 
 ---
 
-## 🛠️ Tech Stack
+**## 🛠️ Tech Stack**
 
-### Frontend
+**### Frontend**
 - React
 - Vite
 - JavaScript / JSX
 - CSS
 - React-based page/component architecture
 
-### Backend
+**### Backend**
 - Python
 - FastAPI
 - SQLAlchemy
@@ -117,17 +152,17 @@ flowchart TB
 - JWT authentication
 - Pydantic
 
-### Database
+**### Database**
 - PostgreSQL
 
-### AI / Intelligent Services
+**### AI / Intelligent Services**
 - Python-based AI service modules
 - Complaint classification
 - Department classification
 - Priority scoring
 - Duplicate detection
 
-### Development & Version Control
+**### Development & Version Control**
 - Git
 - GitHub
 - VS Code
@@ -136,7 +171,7 @@ flowchart TB
 
 ---
 
-## 📁 Project Structure
+**## 📁 Project Structure**
 
 ```text
 CivicFix/
