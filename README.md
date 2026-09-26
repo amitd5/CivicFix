@@ -528,6 +528,9 @@ GitHub: [@amitd5](https://github.com/amitd5)
 
 ## 📄 License
 
-A license has not yet been selected for this repository.
+Copyright © 2026 Amit Dixit. All rights reserved.
 
-If you intend to allow others to reuse or modify the project, add an appropriate open-source license before presenting the repository as an open-source project.
+CivicFix is proprietary software. The source code, documentation,
+branding, and associated project materials may not be copied,
+modified, distributed, or used commercially without prior written
+permission from the copyright holder.
